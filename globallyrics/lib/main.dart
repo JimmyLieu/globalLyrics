@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'screens/current_song_screen.dart';
 import 'screens/library_screen.dart';
 import 'models/song.dart';
@@ -53,6 +54,13 @@ class _MainNavigatorState extends State<MainNavigator> {
   int _selectedIndex = 0;
   Song? currentSong;
   bool isPlaying = false;
+  final AudioPlayer _audioPlayer = AudioPlayer();
+  
+  @override
+  void dispose() {
+    _audioPlayer.dispose();
+    super.dispose();
+  }
 
   void updateCurrentSong(Song song, bool playing) {
     setState(() {
@@ -61,11 +69,15 @@ class _MainNavigatorState extends State<MainNavigator> {
     });
   }
 
-  void togglePlayPause() {
+  void togglePlayPause() async {
+    if (isPlaying) {
+      await _audioPlayer.pause();
+    } else {
+      await _audioPlayer.resume();
+    }
     setState(() {
       isPlaying = !isPlaying;
     });
-    // TODO: Implement actual playback control
   }
 
   @override
@@ -74,10 +86,14 @@ class _MainNavigatorState extends State<MainNavigator> {
       body: IndexedStack(
         index: _selectedIndex,
         children: [
-          LibraryScreen(onSongSelected: updateCurrentSong),
+          LibraryScreen(
+            onSongSelected: updateCurrentSong,
+            audioPlayer: _audioPlayer,
+          ),
           if (currentSong != null)
             CurrentSongScreen(
               song: currentSong!,
+              audioPlayer: _audioPlayer,
               onPlayingChanged: (playing) {
                 setState(() {
                   isPlaying = playing;

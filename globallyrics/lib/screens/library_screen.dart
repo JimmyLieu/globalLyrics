@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:audioplayers/audioplayers.dart';
 import '../models/song.dart';
 import '../repositories/songs_repository.dart';
 import 'current_song_screen.dart';
 
 class LibraryScreen extends StatelessWidget {
   final Function(Song, bool) onSongSelected;
+  final AudioPlayer audioPlayer;
 
   const LibraryScreen({
     super.key,
     required this.onSongSelected,
+    required this.audioPlayer,
   });
 
   @override
@@ -37,7 +40,7 @@ class LibraryScreen extends StatelessWidget {
               width: 50,
               height: 50,
               decoration: BoxDecoration(
-                color: Colors.grey[800],
+                color: Colors.grey[200],
                 borderRadius: BorderRadius.circular(8),
               ),
               child: song.albumArt != null
@@ -46,16 +49,9 @@ class LibraryScreen extends StatelessWidget {
             ),
             title: Text(song.title),
             subtitle: Text(song.artist),
-            trailing: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  '🌐 ${song.audioVersions.length}',
-                  style: TextStyle(color: Colors.grey[400]),
-                ),
-                const SizedBox(width: 16),
-                const Icon(Icons.more_vert),
-              ],
+            trailing: Text(
+              '🌐 ${song.audioVersions.length}',
+              style: TextStyle(color: Colors.grey[600]),
             ),
             onTap: () {
               onSongSelected(song, true);
@@ -64,9 +60,8 @@ class LibraryScreen extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (context) => CurrentSongScreen(
                     song: song,
-                    onPlayingChanged: (playing) {
-                      onSongSelected(song, playing);
-                    },
+                    audioPlayer: audioPlayer,
+                    onPlayingChanged: (playing) => onSongSelected(song, playing),
                   ),
                 ),
               );
