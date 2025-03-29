@@ -7,8 +7,12 @@ class SongsRepository {
       title: 'Birds of a Feather',
       artist: 'Billie Eilish',
       audioVersions: {
-        'English': 'songs/birds_of_feather/birds_off_a_feather_en.mp3',
-        'Spanish': 'songs/birds_of_feather/birds_off_a_feather_es.mp3',
+        'English': 'songs/birds_of_a_feather/birds_of_a_feather_en.mp3',
+        'Spanish': 'songs/birds_of_a_feather/birds_of_a_feather_es.mp3',
+      },
+      lyricsVersions: {
+        'English': 'songs/birds_of_a_feather/birds_of_a_feather_en.txt',
+        'Spanish': 'songs/birds_of_a_feather/birds_of_a_feather_es.txt',
       },
     ),
   ];

@@ -4,7 +4,12 @@ import '../repositories/songs_repository.dart';
 import 'current_song_screen.dart';
 
 class LibraryScreen extends StatelessWidget {
-  const LibraryScreen({super.key});
+  final Function(Song, bool) onSongSelected;
+
+  const LibraryScreen({
+    super.key,
+    required this.onSongSelected,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -53,10 +58,16 @@ class LibraryScreen extends StatelessWidget {
               ],
             ),
             onTap: () {
+              onSongSelected(song, true);
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => CurrentSongScreen(song: song),
+                  builder: (context) => CurrentSongScreen(
+                    song: song,
+                    onPlayingChanged: (playing) {
+                      onSongSelected(song, playing);
+                    },
+                  ),
                 ),
               );
             },
