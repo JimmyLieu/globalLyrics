@@ -55,7 +55,12 @@ flutter:
   assets:
     - assets/songs/
     - assets/songs/birds_of_a_feather/
-    - assets/songs/birds_of_a_feather/
+    - assets/songs/birds_of_a_feather/picture/birdsofafeather.jpg
+    - assets/songs/birds_of_a_feather/picture/birdsofafeather.jpg
+    - assets/songs/bad_guy/
+    - assets/songs/bad_guy/bad_guy_en.mp3
+    - assets/songs/bad_guy/picture/bad_guy.jpg
+    
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

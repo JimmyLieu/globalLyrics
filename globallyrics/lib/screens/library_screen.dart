@@ -37,15 +37,36 @@ class LibraryScreen extends StatelessWidget {
           final song = songs[index];
           return ListTile(
             leading: Container(
-              width: 50,
-              height: 50,
+              width: 56,
+              height: 56,
               decoration: BoxDecoration(
-                color: Colors.grey[200],
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(12),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.1),
+                    blurRadius: 8,
+                    offset: const Offset(0, 2),
+                  ),
+                ],
               ),
-              child: song.albumArt != null
-                  ? Image.asset(song.albumArt!)
-                  : const Icon(Icons.music_note),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: song.albumArt != null
+                    ? Image.asset(
+                        song.albumArt!,
+                        fit: BoxFit.cover,
+                        width: double.infinity,
+                        height: double.infinity,
+                      )
+                    : Container(
+                        color: Colors.grey[200],
+                        child: const Icon(
+                          Icons.music_note,
+                          color: Colors.grey,
+                          size: 30,
+                        ),
+                      ),
+              ),
             ),
             title: Text(song.title),
             subtitle: Text(song.artist),
