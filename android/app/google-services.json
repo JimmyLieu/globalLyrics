@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "390804369971",
+    "project_id": "global-lyrics-c56c8",
+    "storage_bucket": "global-lyrics-c56c8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:390804369971:android:692b8547c288cabe5da946",
+        "android_client_info": {
+          "package_name": "globallyrics.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "390804369971-a87og3ho1dodaag70hch3dqatjgjpc7i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCk3I3Eoug_h_zykT3_vDO6VYwkJVNsmOY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "390804369971-a87og3ho1dodaag70hch3dqatjgjpc7i.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "390804369971-huq1ltno5fjlaaelloohcl60uvj5ftfn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.globallyrics"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

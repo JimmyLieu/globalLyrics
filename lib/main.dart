@@ -1,0 +1,215 @@
+import 'package:flutter/material.dart';
+import 'package:audioplayers/audioplayers.dart';
+import 'screens/current_song_screen.dart';
+import 'screens/library_screen.dart';
+import 'models/song.dart';
+import 'widgets/mini_player.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'firebase_options.dart';
+
+
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  print("✅ Firebase connected");
+
+  try {
+    UserCredential userCredential = await FirebaseAuth.instance.signInAnonymously();
+    print("✅ Signed in as: ${userCredential.user?.uid}");
+
+    await FirebaseFirestore.instance.collection('test_users').add({
+      'user_id': userCredential.user?.uid,
+      'message': 'Hello from Flutter! 🎵',
+      'timestamp': FieldValue.serverTimestamp(),
+    });
+
+    print("✅ Firestore write successful");
+  } catch (e) {
+    print("❌ Firebase Error: $e");
+  }
+
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Global Lyrics',
+      theme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.light(
+          primary: Colors.black87,
+          secondary: Colors.deepOrange,
+          background: Colors.white,
+          surface: Colors.white,
+        ),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.black87,
+          elevation: 0,
+        ),
+        scaffoldBackgroundColor: Colors.white,
+        iconTheme: const IconThemeData(color: Colors.black54),
+        textTheme: const TextTheme(
+          titleLarge: TextStyle(color: Colors.black87, fontWeight: FontWeight.bold),
+          titleMedium: TextStyle(color: Colors.black87),
+          bodyLarge: TextStyle(color: Colors.black87),
+          bodyMedium: TextStyle(color: Colors.black54),
+        ),
+      ),
+      home: const MainNavigator(),
+    );
+  }
+}
+
+class MainNavigator extends StatefulWidget {
+  const MainNavigator({super.key});
+
+  @override
+  State<MainNavigator> createState() => _MainNavigatorState();
+}
+
+class _MainNavigatorState extends State<MainNavigator> {
+  int _selectedIndex = 0;
+  Song? currentSong;
+  bool isPlaying = false;
+  final AudioPlayer _audioPlayer = AudioPlayer();
+  
+  @override
+  void dispose() {
+    _audioPlayer.dispose();
+    super.dispose();
+  }
+
+  void updateCurrentSong(Song song, bool playing) {
+    setState(() {
+      currentSong = song;
+      isPlaying = playing;
+    });
+  }
+
+  void togglePlayPause() async {
+    if (isPlaying) {
+      await _audioPlayer.pause();
+    } else {
+      await _audioPlayer.resume();
+    }
+    setState(() {
+      isPlaying = !isPlaying;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    Widget currentScreen;
+    if (_selectedIndex == 0) {
+      currentScreen = LibraryScreen(
+        onSongSelected: updateCurrentSong,
+        audioPlayer: _audioPlayer,
+      );
+    } else if (_selectedIndex == 1 && currentSong != null) {
+      currentScreen = CurrentSongScreen(
+        song: currentSong!,
+        audioPlayer: _audioPlayer,
+        onPlayingChanged: (playing) {
+          setState(() {
+            isPlaying = playing;
+          });
+        },
+      );
+    } else {
+      // Profile screen
+      currentScreen = Scaffold(
+        appBar: AppBar(
+          title: const Text('Profile'),
+        ),
+        body: ListView(
+          padding: const EdgeInsets.all(24),
+          children: [
+            const CircleAvatar(
+              radius: 50,
+              backgroundColor: Colors.deepOrange,
+              child: Icon(Icons.person, size: 50, color: Colors.white),
+            ),
+            const SizedBox(height: 16),
+            const Text(
+              'Jimmy Lieu',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 32),
+            ListTile(
+              leading: const Icon(Icons.music_note, color: Colors.deepOrange),
+              title: const Text('My Songs'),
+              trailing: const Text('23'),
+            ),
+            ListTile(
+              leading: const Icon(Icons.favorite, color: Colors.deepOrange),
+              title: const Text('Liked Songs'),
+              trailing: const Text('12'),
+            ),
+            ListTile(
+              leading: const Icon(Icons.language, color: Colors.deepOrange),
+              title: const Text('Languages'),
+              trailing: const Text('English, Spanish'),
+            ),
+          ],
+        ),
+      );
+    }
+
+    return Scaffold(
+      body: currentScreen,
+      bottomNavigationBar: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (currentSong != null && _selectedIndex != 1)
+            MiniPlayer(
+              song: currentSong!,
+              isPlaying: isPlaying,
+              onPlayPause: togglePlayPause,
+              onTap: () {
+                setState(() {
+                  _selectedIndex = 1;
+                });
+              },
+            ),
+          BottomNavigationBar(
+            currentIndex: _selectedIndex,
+            onTap: (index) {
+              setState(() {
+                _selectedIndex = index;
+              });
+            },
+            items: const [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.library_music),
+                label: 'Library',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.music_note),
+                label: 'Now Playing',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.person),
+                label: 'Profile',
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}

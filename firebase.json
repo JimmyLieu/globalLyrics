@@ -1,0 +1,29 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "global-lyrics-c56c8",
+          "appId": "1:390804369971:android:692b8547c288cabe5da946",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "global-lyrics-c56c8",
+          "configurations": {
+            "android": "1:390804369971:android:692b8547c288cabe5da946",
+            "ios": "1:390804369971:ios:81aed944d861fcc45da946",
+            "macos": "1:390804369971:ios:81aed944d861fcc45da946",
+            "web": "1:390804369971:web:ebf6463ac381f5565da946",
+            "windows": "1:390804369971:web:4a014a528991d1b05da946"
+          }
+        }
+      }
+    }
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  }
+}
