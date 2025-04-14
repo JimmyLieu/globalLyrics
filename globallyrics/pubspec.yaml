@@ -60,6 +60,8 @@ flutter:
     - assets/songs/bad_guy/
     - assets/songs/bad_guy/bad_guy_en.mp3
     - assets/songs/bad_guy/picture/bad_guy.jpg
+    - assets/songs/lonely/
+    - assets/songs/lonely/lonely_en.wav
     
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

@@ -35,7 +35,7 @@ class SongsRepository {
       title: 'Lonely',
       artist: 'Justin Bieber',
       audioVersions: {
-        'English': 'songs/lonely/lonely_en.mp3',
+        'English': 'songs/lonely/lonely_en.wav',
         'Spanish': 'songs/lonely/lonely_es.mp3',
       },
       lyricsVersions: {
