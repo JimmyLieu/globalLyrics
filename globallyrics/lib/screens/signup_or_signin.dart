@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:globallyrics/widgets/basic_app_button.dart';
 
 class SignupOrSignin extends StatelessWidget {
   const SignupOrSignin({super.key});
@@ -81,7 +82,7 @@ class SignupOrSignin extends StatelessWidget {
                     style:  TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
-                      color: context.IsDarkMode ? Colors.white : Colors.black
+                      color: Color(0xffBEBEBE)
                     ),
                   ),
                 ),
