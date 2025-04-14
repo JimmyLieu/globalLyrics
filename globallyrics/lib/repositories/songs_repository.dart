@@ -35,14 +35,14 @@ class SongsRepository {
       title: 'Lonely',
       artist: 'Justin Bieber',
       audioVersions: {
-        'English': 'songs/bad_guy/bad_guy_en.mp3',
-        'Spanish': 'songs/bad_guy/bad_guy_es.mp3',
+        'English': 'songs/lonely/lonely_en.mp3',
+        'Spanish': 'songs/lonely/lonely_es.mp3',
       },
       lyricsVersions: {
-        'English': 'songs/birds_of_a_feather/birds_of_a_feather_en.txt',
-        'Spanish': 'songs/birds_of_a_feather/birds_of_a_feather_es.txt',
+        'English': 'songs/lonely/lonely_en.txt',
+        'Spanish': 'songs/lonely/lonely_es.txt',
       },
-      albumArt: 'assets/songs/bad_guy/picture/bad_guy.jpg',
+      albumArt: 'assets/songs/lonely/picture/lonely.jpg',
     ),
   ];
 
