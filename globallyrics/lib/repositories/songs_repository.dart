@@ -30,6 +30,20 @@ class SongsRepository {
       },
       albumArt: 'assets/songs/bad_guy/picture/bad_guy.jpg',
     ),
+    Song(
+      id: '3',
+      title: 'Lonely',
+      artist: 'Justin Bieber',
+      audioVersions: {
+        'English': 'songs/bad_guy/bad_guy_en.mp3',
+        'Spanish': 'songs/bad_guy/bad_guy_es.mp3',
+      },
+      lyricsVersions: {
+        'English': 'songs/birds_of_a_feather/birds_of_a_feather_en.txt',
+        'Spanish': 'songs/birds_of_a_feather/birds_of_a_feather_es.txt',
+      },
+      albumArt: 'assets/songs/bad_guy/picture/bad_guy.jpg',
+    ),
   ];
 
   List<Song> getAllSongs() => songs;
