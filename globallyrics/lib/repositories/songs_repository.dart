@@ -42,7 +42,7 @@ class SongsRepository {
         'English': 'songs/lonely/lonely_en.txt',
         'Spanish': 'songs/lonely/lonely_es.txt',
       },
-      albumArt: 'assets/songs/lonely/picture/lonely.jpg',
+      albumArt: 'assets/songs/lonely/lonely.png',
     ),
   ];
 
