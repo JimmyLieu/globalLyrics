@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:globallyrics/assets/vectors.dart';
+import 'package:globallyrics/screens/signup.dart';
 import 'package:globallyrics/widgets/basic_app_button.dart';
 
 class SignupOrSignin extends StatelessWidget {
@@ -9,14 +12,6 @@ class SignupOrSignin extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-         const BasicAppBar(),
-          Align(
-            alignment: Alignment.bottomLeft,
-            child: Image.asset(
-              AppImages.authBG
-            ),
-          ),
-
           Align(
             alignment: Alignment.center,
             child: Padding(
@@ -48,7 +43,7 @@ class SignupOrSignin extends StatelessWidget {
                     style: TextStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 13,
-                      color: AppColors.grey
+                      color:Color(0xffBEBEBE)
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -65,7 +60,7 @@ class SignupOrSignin extends StatelessWidget {
                             Navigator.push(
                               context,
                                MaterialPageRoute(
-                                builder: (BuildContext context)=> const SignupPage()
+                                builder: (BuildContext context)=> SignupPage()
                                )
                               );
                           }, 

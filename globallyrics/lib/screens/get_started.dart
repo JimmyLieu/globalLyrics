@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:globallyrics/assets/images.dart';
+import 'package:globallyrics/assets/vectors.dart';
+import 'package:globallyrics/screens/signup_or_signin.dart';
 
 
 class GetStartedPage extends StatelessWidget {
@@ -58,7 +62,7 @@ class GetStartedPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (BuildContext context) => const ChooseModePage(),
+                        builder: (BuildContext context) => const SignupOrSignin(),
                       ),
                     );
                   },
