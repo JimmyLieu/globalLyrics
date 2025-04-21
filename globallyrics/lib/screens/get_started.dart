@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:globallyrics/assets/images.dart';
 import 'package:globallyrics/assets/vectors.dart';
 import 'package:globallyrics/screens/signup_or_signin.dart';
+import 'package:globallyrics/widgets/basic_app_button.dart';
 
 
 class GetStartedPage extends StatelessWidget {
@@ -57,25 +58,22 @@ class GetStartedPage extends StatelessWidget {
                 const SizedBox(height: 20),
                 
                 // BasicAppButton 
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (BuildContext context) => const SignupOrSignin(),
-                      ),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: const Size.fromHeight(80),
-                  ),
-                  child: const Text('Get Started'),
+                BasicAppButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (BuildContext context) => const SignupOrSignin()
+                        )
+                     );
+                    },
+                    title: 'Get Started'
+                  )
+              ],
                 ),
+          ),
               ],
             ),
-          ),
-        ],
-      ),
-    );
+          );
   }
 }

@@ -1,52 +1,11 @@
-import 'package:flutter/material.dart';
+
 import 'package:audioplayers/audioplayers.dart';
-import 'package:globallyrics/screens/get_started.dart';
-import 'screens/current_song_screen.dart';
-import 'screens/library_screen.dart';
-import 'models/song.dart';
-import 'widgets/mini_player.dart';
-import 'screens/profile_screen.dart';
+import 'package:flutter/material.dart';
+import 'package:globallyrics/models/song.dart';
+import 'package:globallyrics/screens/current_song_screen.dart';
+import 'package:globallyrics/screens/library_screen.dart';
+import 'package:globallyrics/widgets/mini_player.dart';
 
-
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Global Lyrics',
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.light(
-          primary: Colors.black87,
-          secondary: Colors.deepOrange,
-          background: Colors.white,
-          surface: Colors.white,
-        ),
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.white,
-          foregroundColor: Colors.black87,
-          elevation: 0,
-        ),
-        scaffoldBackgroundColor: Colors.white,
-        iconTheme: const IconThemeData(color: Colors.black54),
-        textTheme: const TextTheme(
-          titleLarge: TextStyle(color: Colors.black87, fontWeight: FontWeight.bold),
-          titleMedium: TextStyle(color: Colors.black87),
-          bodyLarge: TextStyle(color: Colors.black87),
-          bodyMedium: TextStyle(color: Colors.black54),
-        ),
-      ),
-      home: const GetStartedPage(),
-    );
-  }
-}
-
-/*
 class MainNavigator extends StatefulWidget {
   const MainNavigator({super.key});
 
@@ -187,5 +146,5 @@ class _MainNavigatorState extends State<MainNavigator> {
         ],
       ),
     );
-  } 
-} */
+  }
+}
