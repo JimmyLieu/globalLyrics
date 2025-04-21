@@ -67,7 +67,7 @@ flutter:
     - assets/songs/lonely/lonely.png
     - assets/songs/lonely/lonely_en.txt
     - assets/songs/lonely/lonely_es.txt
-    - 
+
     
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
