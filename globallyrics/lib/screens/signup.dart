@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:globallyrics/assets/vectors.dart';
 import 'package:globallyrics/screens/signin.dart';
+import 'package:globallyrics/widgets/app_bar.dart';
 import 'package:globallyrics/widgets/basic_app_button.dart';
 
 class SignupPage extends StatelessWidget {

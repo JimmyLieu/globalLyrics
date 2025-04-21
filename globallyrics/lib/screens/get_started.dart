@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-<<<<<<< Updated upstream
 import 'package:flutter_svg/svg.dart';
 import 'package:globallyrics/assets/images.dart';
 import 'package:globallyrics/assets/vectors.dart';
 import 'package:globallyrics/screens/signup_or_signin.dart';
 
-=======
-import 'package:flutter_svg/flutter_svg.dart';
->>>>>>> Stashed changes
 
 class GetStartedPage extends StatelessWidget {
   const GetStartedPage({super.key});
