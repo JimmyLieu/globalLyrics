@@ -79,8 +79,8 @@ flutter:
     - assets/songs/love_yourself/picture/love_yourself.jpg
     - assets/songs/love_yourself/love_yourself_en.mp3
     - assets/songs/love_yourself/love_yourself_es.mp3
-
-
+    - assets/songs/love_yourself/love_yourself_en.txt
+    - assets/songs/love_yourself/love_yourself_es.txt
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
