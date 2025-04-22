@@ -1,10 +1,10 @@
-
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:globallyrics/models/song.dart';
 import 'package:globallyrics/screens/current_song_screen.dart';
 import 'package:globallyrics/screens/library_screen.dart';
 import 'package:globallyrics/widgets/mini_player.dart';
+import 'package:globallyrics/repositories/songs_repository.dart';
 
 class MainNavigator extends StatefulWidget {
   const MainNavigator({super.key});
@@ -18,6 +18,7 @@ class _MainNavigatorState extends State<MainNavigator> {
   Song? currentSong;
   bool isPlaying = false;
   final AudioPlayer _audioPlayer = AudioPlayer();
+  final SongsRepository _songsRepository = SongsRepository();
   
   @override
   void dispose() {
@@ -55,6 +56,8 @@ class _MainNavigatorState extends State<MainNavigator> {
       currentScreen = CurrentSongScreen(
         song: currentSong!,
         audioPlayer: _audioPlayer,
+        allSongs: _songsRepository.getAllSongs(),
+        onSongChanged: (newSong) => updateCurrentSong(newSong, true),
         onPlayingChanged: (playing) {
           setState(() {
             isPlaying = playing;

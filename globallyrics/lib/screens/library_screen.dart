@@ -82,6 +82,8 @@ class LibraryScreen extends StatelessWidget {
                   builder: (context) => CurrentSongScreen(
                     song: song,
                     audioPlayer: audioPlayer,
+                    allSongs: songs,
+                    onSongChanged: (newSong) => onSongSelected(newSong, true),
                     onPlayingChanged: (playing) => onSongSelected(song, playing),
                   ),
                 ),

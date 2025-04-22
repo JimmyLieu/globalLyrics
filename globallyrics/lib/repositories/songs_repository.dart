@@ -49,14 +49,14 @@ class SongsRepository {
       title: 'Chammak Challo',
       artist: 'Ra One',
       audioVersions: {
-        'English': 'songs/chammack/chammak_challo_en.mp3',
+        'English': 'songs/chammack/Chammak.mp3',
         'Spanish': 'songs/chammack/Chammak_Challo_JB.mp3',
       },
       lyricsVersions: {
-        'English': 'songs/lonely/lonely_en.txt',
-        'Spanish': 'songs/chammack/chammak_jb.mp3',
+        'English': 'songs/chammack/chammak.txt',
+        'Spanish': 'songs/chammack/chammak_jb.txt',
       },
-      albumArt: 'assets/songs/lonely/lonely.png',
+      albumArt: 'assets/songs/chammack/picture/chammak.jpg',
     ),
   ];
 

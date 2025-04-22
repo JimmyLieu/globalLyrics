@@ -71,9 +71,13 @@ flutter:
     - assets/vectors/GL_logo.svg
     - assets/images/GL_logo.png
     - assets/songs/bad_guy/bad_guy_es.mp3
+    - assets/songs/chammack/Chammak_Challo_JB.mp3
+    - assets/songs/chammack/chammak_jb.txt
+    - assets/songs/chammack/picture/chammak.jpg
+    - assets/songs/chammack/chammak.txt
+    - assets/songs/chammack/Chammak.mp3
 
 
-    
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

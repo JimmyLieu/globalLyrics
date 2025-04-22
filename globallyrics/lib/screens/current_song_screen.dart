@@ -9,11 +9,15 @@ class CurrentSongScreen extends StatefulWidget {
   final Song song;
   final AudioPlayer audioPlayer;
   final Function(bool)? onPlayingChanged;
+  final List<Song> allSongs;
+  final Function(Song) onSongChanged;
   
   const CurrentSongScreen({
     super.key,
     required this.song,
     required this.audioPlayer,
+    required this.allSongs,
+    required this.onSongChanged,
     this.onPlayingChanged,
   });
 
@@ -52,6 +56,7 @@ class _CurrentSongScreenState extends State<CurrentSongScreen> {
 
   Future<void> _setupAudioPlayer() async {
     try {
+      await widget.audioPlayer.stop();
       await widget.audioPlayer.setSource(AssetSource(widget.song.audioVersions[currentLanguage]!));
       
       _subscriptions.addAll([
@@ -71,8 +76,10 @@ class _CurrentSongScreenState extends State<CurrentSongScreen> {
         }),
       ]);
 
-      await widget.audioPlayer.resume();
+      // Wait for the duration to be set before playing
+      await Future.delayed(const Duration(milliseconds: 100));
       if (mounted) {
+        await widget.audioPlayer.resume();
         setState(() {
           isPlaying = true;
         });
@@ -211,6 +218,60 @@ class _CurrentSongScreenState extends State<CurrentSongScreen> {
         ),
       ),
     );
+  }
+
+  void _skipToNext() async {
+    final currentIndex = widget.allSongs.indexWhere((s) => s.id == widget.song.id);
+    if (currentIndex == -1) return;
+    
+    final nextIndex = (currentIndex + 1) % widget.allSongs.length;
+    final nextSong = widget.allSongs[nextIndex];
+    
+    await widget.audioPlayer.stop();
+    widget.onSongChanged(nextSong);
+    
+    // Navigate to the new song screen
+    if (mounted) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => CurrentSongScreen(
+            song: nextSong,
+            audioPlayer: widget.audioPlayer,
+            allSongs: widget.allSongs,
+            onSongChanged: widget.onSongChanged,
+            onPlayingChanged: widget.onPlayingChanged,
+          ),
+        ),
+      );
+    }
+  }
+
+  void _skipToPrevious() async {
+    final currentIndex = widget.allSongs.indexWhere((s) => s.id == widget.song.id);
+    if (currentIndex == -1) return;
+    
+    final prevIndex = (currentIndex - 1 + widget.allSongs.length) % widget.allSongs.length;
+    final prevSong = widget.allSongs[prevIndex];
+    
+    await widget.audioPlayer.stop();
+    widget.onSongChanged(prevSong);
+    
+    // Navigate to the new song screen
+    if (mounted) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => CurrentSongScreen(
+            song: prevSong,
+            audioPlayer: widget.audioPlayer,
+            allSongs: widget.allSongs,
+            onSongChanged: widget.onSongChanged,
+            onPlayingChanged: widget.onPlayingChanged,
+          ),
+        ),
+      );
+    }
   }
 
   @override
@@ -379,7 +440,7 @@ class _CurrentSongScreenState extends State<CurrentSongScreen> {
                 ),
                 IconButton(
                   icon: const Icon(Icons.skip_previous),
-                  onPressed: () {},
+                  onPressed: _skipToPrevious,
                   iconSize: 36,
                   color: Colors.black87,
                 ),
@@ -401,7 +462,7 @@ class _CurrentSongScreenState extends State<CurrentSongScreen> {
                 ),
                 IconButton(
                   icon: const Icon(Icons.skip_next),
-                  onPressed: () {},
+                  onPressed: _skipToNext,
                   iconSize: 36,
                   color: Colors.black87,
                 ),
