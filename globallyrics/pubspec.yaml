@@ -70,6 +70,8 @@ flutter:
     - assets/images/introBG.png
     - assets/vectors/GL_logo.svg
     - assets/images/GL_logo.png
+    - assets/songs/bad_guy/bad_guy_es.mp3
+
 
     
   # The following line ensures that the Material Icons font is

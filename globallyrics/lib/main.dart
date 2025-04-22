@@ -118,7 +118,7 @@ class _MainNavigatorState extends State<MainNavigator> {
             ),
             const SizedBox(height: 16),
             const Text(
-              'Jimmy Lieu',
+              'Test Profile Name',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 24,

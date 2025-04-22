@@ -18,7 +18,7 @@ class SongsRepository {
     ),
     Song(
       id: '2',
-      title: 'Bad Guys',
+      title: 'Bad Guy',
       artist: 'Billie Eilish',
       audioVersions: {
         'English': 'songs/bad_guy/bad_guy_en.mp3',
@@ -41,6 +41,20 @@ class SongsRepository {
       lyricsVersions: {
         'English': 'songs/lonely/lonely_en.txt',
         'Spanish': 'songs/lonely/lonely_es.txt',
+      },
+      albumArt: 'assets/songs/lonely/lonely.png',
+    ),
+    Song(
+      id: '4',
+      title: 'Chammak Challo',
+      artist: 'Ra One',
+      audioVersions: {
+        'English': 'songs/chammack/chammak_challo_en.mp3',
+        'Spanish': 'songs/chammack/Chammak_Challo_JB.mp3',
+      },
+      lyricsVersions: {
+        'English': 'songs/lonely/lonely_en.txt',
+        'Spanish': 'songs/chammack/chammak_jb.mp3',
       },
       albumArt: 'assets/songs/lonely/lonely.png',
     ),
