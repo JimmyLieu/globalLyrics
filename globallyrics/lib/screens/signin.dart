@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:globallyrics/assets/vectors.dart';
+import 'package:globallyrics/assets/images.dart';
 import 'package:globallyrics/screens/main_navigator.dart';
 import 'package:globallyrics/screens/signup.dart';
 import 'package:globallyrics/widgets/app_bar.dart';
@@ -17,50 +16,55 @@ class SigninPage extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: _signupText(context),
       appBar: BasicAppbar(
-        title: SvgPicture.asset(
-          AppVectors.logo,
-          height: 40,
-          width: 40,
+        title: Padding(
+          padding: const EdgeInsets.only(top: 100),
+          child: Image.asset(
+            AppImages.logo,
+            height: 250,
+            width: 250,
+          ),
         ),
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(
-          vertical: 50,
-          horizontal: 30,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            _registerText(),
-            const SizedBox(height: 50),
-            _emailField(context),
-            const SizedBox(height: 20),
-            _passwordField(context),
-            const SizedBox(height: 20),
-            BasicAppButton(
-              onPressed: () async {
-                // Simulate a fake sign-in success flow
-                await Future.delayed(const Duration(seconds: 1));
-
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text('Signed in (mock logic)'),
-                    behavior: SnackBarBehavior.floating,
+      body: Column(
+        children: [
+          Expanded(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const SizedBox(height: 80), 
+                  _registerText(),
+                  const SizedBox(height: 40),
+                  _emailField(context),
+                  const SizedBox(height: 20),
+                  _passwordField(context),
+                  const SizedBox(height: 20),
+                  BasicAppButton(
+                    onPressed: () async {
+                      await Future.delayed(const Duration(seconds: 1));
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Signed in (mock logic)'),
+                          behavior: SnackBarBehavior.floating,
+                        ),
+                      );
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              const MainNavigator(),
+                        ),
+                        (route) => false,
+                      );
+                    },
+                    title: 'Sign In',
                   ),
-                );
-
-                Navigator.pushAndRemoveUntil(
-                  context,
-                  MaterialPageRoute(
-                    builder: (BuildContext context) => const MainNavigator(),
-                  ),
-                  (route) => false,
-                );
-              },
-              title: 'Sign In',
+                ],
+              ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

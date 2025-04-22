@@ -67,6 +67,9 @@ flutter:
     - assets/songs/lonely/lonely.png
     - assets/songs/lonely/lonely_en.txt
     - assets/songs/lonely/lonely_es.txt
+    - assets/images/introBG.png
+    - assets/vectors/GL_logo.svg
+    - assets/images/GL_logo.png
 
     
   # The following line ensures that the Material Icons font is

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:globallyrics/assets/images.dart';
 import 'package:globallyrics/assets/vectors.dart';
 import 'package:globallyrics/screens/main_navigator.dart';
 import 'package:globallyrics/screens/signin.dart';
@@ -18,10 +19,13 @@ class SignupPage extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: _siginText(context),
       appBar: BasicAppbar(
-        title: SvgPicture.asset(
-          AppVectors.logo,
-          height: 40,
-          width: 40,
+        title: Padding(
+          padding: const EdgeInsets.only(top: 100),
+          child: Image.asset(
+            AppImages.logo,
+            height: 250,
+            width: 250,
+          ),
         ),
       ),
       body: SingleChildScrollView(
