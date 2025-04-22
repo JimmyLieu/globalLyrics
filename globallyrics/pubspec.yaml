@@ -76,6 +76,10 @@ flutter:
     - assets/songs/chammack/picture/chammak.jpg
     - assets/songs/chammack/chammak.txt
     - assets/songs/chammack/Chammak.mp3
+    - assets/songs/love_yourself/picture/love_yourself.jpg
+    - assets/songs/love_yourself/love_yourself_en.mp3
+    - assets/songs/love_yourself/love_yourself_es.mp3
+
 
 
   # The following line ensures that the Material Icons font is

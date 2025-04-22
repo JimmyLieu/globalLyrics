@@ -58,6 +58,20 @@ class SongsRepository {
       },
       albumArt: 'assets/songs/chammack/picture/chammak.jpg',
     ),
+    Song(
+      id: '5',
+      title: 'Love Yourself',
+      artist: 'Justin Bieber',
+      audioVersions: {
+        'English': 'songs/love_yourself/love_yourself_en.mp3',
+        'Spanish': 'songs/love_yourself/love_yourself_es.mp3',
+      },
+      lyricsVersions: {
+        'English': 'songs/love_yourself/love_yourself_en.txt',
+        'Spanish': 'songs/love_yourself/love_yourself_es.txt',
+      },
+      albumArt: 'assets/songs/love_yourself/picture/love_yourself.jpg',
+    ),
   ];
 
   List<Song> getAllSongs() => songs;
