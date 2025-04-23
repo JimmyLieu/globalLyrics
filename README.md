@@ -15,9 +15,26 @@ A Flutter application that allows users to listen to songs in multiple languages
 
 ## Screenshots
 
-[Add screenshots here]
+### Library Screen
+![Library Screen](images/library_screen.png)
 
-## Getting Started
+### Current Song Screen
+![Current Song Screen](images/current_song_screen.png)
+
+### Profile Screen
+![Profile Screen](images/profile_screen.png)
+
+### Mini Player
+![Mini Player](images/mini_player.png)
+
+To add your own screenshots:
+1. Take screenshots of your application
+2. Save them in the `images` directory
+3. Name them appropriately (e.g., `library_screen.png`, `current_song_screen.png`, etc.)
+4. The images will automatically appear in the README
+
+## How It Works
+![HowItWorks](images/howItWorks.png)
 
 ### Prerequisites
 
