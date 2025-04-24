@@ -73,19 +73,17 @@ lib/
 │   └── profile_screen.dart
 ├── widgets/
 │   └── mini_player.dart   # Mini player component
-└── repositories/          # Data repositories
+└── repositories/          # Song repositories
 ```
 
 ## Dependencies
 
 - flutter: SDK
 - audioplayers: ^latest_version
-- [Add other dependencies here]
 
 ## Architecture
 
 The application follows a clean architecture pattern with:
-- Models: Data structures and business logic
 - Screens: UI components and user interaction
 - Widgets: Reusable UI components
 - Repositories: Data management and API interactions
