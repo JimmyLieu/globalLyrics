@@ -16,19 +16,19 @@ A Flutter application that allows users to listen to songs in multiple languages
 ## Screenshots
 
 ### Sign-In Screen
-![Sign In Screen](images/sign_in_screen.png)
+<img src="images/sign_in_screen.png" width="300" alt="Sign In Screen">
 
 ### Library Screen
-![Library Screen](images/library_screen.png)
+<img src="images/library_screen.png" width="300" alt="Library Screen">
 
 ### Current Song Screen
-![Current Song Screen](images/current_song_screen.png)
+<img src="images/current_song_screen.png" width="300" alt="Current Song Screen">
 
 ### Lyrics Screen
-![Lyrics Screen](images/lyrics_screen.png)
+<img src="images/lyrics_screen.png" width="300" alt="Lyrics Screen">
 
 ## How It Works
-![HowItWorks](images/howItWorks.png)
+<img src="images/howItWorks.png" width="300" alt="How It Works">
 
 ### Prerequisites
 
