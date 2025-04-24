@@ -28,7 +28,7 @@ A Flutter application that allows users to listen to songs in multiple languages
 <img src="images/lyrics_screen.png" width="300" alt="Lyrics Screen">
 
 ## How It Works
-<img src="images/howItWorks.png" width="300" alt="How It Works">
+<img src="images/howItWorks.png" width="600" alt="How It Works">
 
 ### Prerequisites
 
