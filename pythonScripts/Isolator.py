@@ -3,6 +3,8 @@ from spleeter.separator import Separator
 from pydub import AudioSegment
 import os
 
+# Need a requirements.txt (pytube>=12.1.0, spleeter>=2.3.0 pydub>=0.25.1 )
+
 def download_youtube_audio(youtube_url, output_path='downloads'):
     if not os.path.exists(output_path):
         os.makedirs(output_path)
@@ -19,7 +21,6 @@ def download_youtube_audio(youtube_url, output_path='downloads'):
     return new_file
 
 def separate_vocals(audio_file, output_directory='output'):
-    # Initialize the separator
     separator = Separator('spleeter:2stems')
     print("Separating vocals...")
     separator.separate_to_file(audio_file, output_directory)
