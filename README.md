@@ -15,26 +15,20 @@ A Flutter application that allows users to listen to songs in multiple languages
 
 ## Screenshots
 
+### Sign-In Screen
+<img src="images/sign_in_screen.png" width="300" alt="Sign In Screen">
+
 ### Library Screen
-![Library Screen](images/library_screen.png)
+<img src="images/library_screen.png" width="300" alt="Library Screen">
 
 ### Current Song Screen
-![Current Song Screen](images/current_song_screen.png)
+<img src="images/current_song_screen.png" width="300" alt="Current Song Screen">
 
-### Profile Screen
-![Profile Screen](images/profile_screen.png)
-
-### Mini Player
-![Mini Player](images/mini_player.png)
-
-To add your own screenshots:
-1. Take screenshots of your application
-2. Save them in the `images` directory
-3. Name them appropriately (e.g., `library_screen.png`, `current_song_screen.png`, etc.)
-4. The images will automatically appear in the README
+### Lyrics Screen
+<img src="images/lyrics_screen.png" width="300" alt="Lyrics Screen">
 
 ## How It Works
-![HowItWorks](images/howItWorks.png)
+<img src="images/howItWorks.png" width="800" alt="How It Works">
 
 ### Prerequisites
 
@@ -79,19 +73,17 @@ lib/
 │   └── profile_screen.dart
 ├── widgets/
 │   └── mini_player.dart   # Mini player component
-└── repositories/          # Data repositories
+└── repositories/          # Song repositories
 ```
 
 ## Dependencies
 
 - flutter: SDK
 - audioplayers: ^latest_version
-- [Add other dependencies here]
 
 ## Architecture
 
 The application follows a clean architecture pattern with:
-- Models: Data structures and business logic
 - Screens: UI components and user interaction
 - Widgets: Reusable UI components
 - Repositories: Data management and API interactions
