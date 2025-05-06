@@ -466,7 +466,7 @@ def inference_tab():
                 clean_strength=0.0,
                 export_format="wav",
                 f0_file="",
-                embedder_model="hubert_base",
+                embedder_model="contentvec", #ContentVec allows us to focus on the lyrics rather than speaker
                 sid=0,
             )
             return output_path, "Conversion completed successfully!"
